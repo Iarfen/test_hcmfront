@@ -1,0 +1,42 @@
+h1,h2,h3,h4,h5,h6,p,span,th,td,div
+{
+	font-family: 'Calibri';
+}
+
+html,body,h1,p,th
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+#top_bar
+{
+	background-color: #111111;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.top_bar_link
+{
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	padding-bottom: 3px;
+	text-decoration: none;
+}
+
+.top_bar_link:hover
+{
+	border-bottom: 1px solid #FFFFFF;
+}
+
+#top_bar_title
+{
+	color: #FFFFFF;
+	display: inline-block;
+	font-size: 20px;
+	margin-left: 10px;
+}

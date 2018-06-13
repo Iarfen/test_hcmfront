@@ -1,0 +1,85 @@
+.form_button
+{
+	background-color: #24b770;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 900;
+	padding: 5px 20px;
+}
+
+.form_button:hover
+{
+	background-color: #1a9158;
+}
+
+.form_field
+{
+	margin-top: 20px;
+}
+
+#form_schedules
+{
+	display: inline-block;
+	border: 1px solid #999999;
+	border-collapse: collapse;
+}
+
+#form_schedules td,#form_schedules th
+{
+	border: 1px solid #999999;
+	border-collapse: collapse;
+	text-align: center;
+	width: 200px;
+}
+
+#form_schedules td
+{
+	height: 50px;
+}
+
+#form_schedules_container
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#form_inputs_container
+{
+	display: inline-block;
+	vertical-align: top;	
+}
+
+##form_inputs
+{
+	display: inline-block;
+	border: 1px solid #999999;
+	border-collapse: collapse;
+}
+
+##form_inputs td,##form_inputs th
+{
+	border: 1px solid #999999;
+	border-collapse: collapse;
+	text-align: center;
+	width: 200px;
+}
+
+##form_inputs td
+{
+	height: 50px;
+}
+
+.form_schedule_delete_button_td
+{
+	padding-left: 50px;
+}
+
+.form_field_text
+{
+	display: inline-block;
+	font-weight: 900;
+	margin-right: 10px;
+	text-align: right;
+	width: 200px;
+}

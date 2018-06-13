@@ -1,0 +1,21 @@
+#login_content
+{
+	background-color: #FFFFFF;
+	display: inline-block;
+	margin-top: 30px;
+	padding: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#layout_content
+{
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+#form_login_send_button
+{
+	margin-left: 255px;
+	margin-top: 15px;
+}

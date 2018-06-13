@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Modificar reservas
+{% endblock %}
+
+{% block css %}
+	{% load static %}
+	<link type="text/css" rel="stylesheet" href="{% static "form.css" %}">
+{% endblock %}
+
+{% block content %}
+<div id="modify_reservation_content">
+<h2 id="modify_reservation_title">Modificar reservas</h2>
+<table id="modify_reservation_table">
+	<tr>
+		<th>Sala</th>
+		<th>Fecha</th>
+		<th>Hora de inicio</th>
+		<th>Hora de término</th>
+		<th>Cantidad de personas</th>
+		<th>Insumos</th>
+		<th>Editar</th>
+		<th>Eliminar</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><a href="{% url 'modify_reservation_edit' %}" class="form_button">Editar</a></td>
+		<td><a href="{% url 'modify_reservation_delete' %}" class="form_button">Eliminar</a></td>
+	</tr>
+</table>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

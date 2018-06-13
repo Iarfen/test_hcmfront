@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>{% block title %}{% endblock %} - Test de HCMFront</title>
+	{% block css %}{% endblock %}
+	{% load static %}
+	<link type="text/css" rel="stylesheet" href="{% static "layout.css" %}">
+</head>
+<body>
+	<div id="top_bar">
+		<h1 id="top_bar_title">Test de HCMFront</h1>
+		<a href="{% url 'add_classroom' %}" class="top_bar_link">Agregar sala</a>
+		<a href="{% url 'rent_classroom' %}" class="top_bar_link">Arrendar sala</a>
+		<a href="{% url 'request_classroom' %}" class="top_bar_link">Solicitar sala</a>
+		<a href="{% url 'modify_reservation' %}" class="top_bar_link">Modificar reservas</a>
+		<a href="{% url 'login' %}" id="top_bar_login">Iniciar sesión</a>
+	</div>
+	<div id="layout_content">
+	{% block content %}{% endblock %}
+	</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

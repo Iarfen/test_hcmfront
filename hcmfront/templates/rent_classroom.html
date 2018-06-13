@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Arrendar sala - 
+{% endblock %}
+
+{% block css %}
+	{% load static %}
+	<link type="text/css" rel="stylesheet" href="{% static "form.css" %}">
+{% endblock %}
+
+{% block content %}
+<div id="rent_classroom_content">
+<h2 id="rent_classroom_title">Arrendar sala - </h2>
+
+{% if form.is_valid %}
+	<p>Sala agregada exitosamente!</p>
+{% else %}
+<div>
+	{{ form.name.errors }}
+	{{ form.location.errors }}
+	{{ form.capacity.errors }}
+</div>
+{% endif %}
+
+<form action="{% url 'rent_classroom_send' %}" method="post" id="form_rent_classroom">
+{% csrf_token %}
+<div class="form_field">
+	<span class="form_field_text">Fecha: </span><input type="text" name="date">
+</div>
+<div class="form_field">
+	<span class="form_field_text">Hora de inicio: </span><input type='text' name='start_hour'>
+</div>
+<div class="form_field">
+	<span class="form_field_text">Hora de término: </span><input type='text' name='end_hour'>
+</div>
+<div class="form_field">
+	<span class="form_field_text">Cantidad de personas: </span><input type='text' name='number_of_people'>
+</div>
+<div class="form_field">
+	<span class="form_field_text">Insumos: </span>
+	<div id="form_inputs_container">
+		<table id="form_inputs">
+			<tr>
+				<th>Insumo</th>
+				<th></th>
+			</tr>
+			<tr id="form_input_add_input">
+				<td><div class="form_button" onclick="form_add_input()">Agregar insumo</div></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="form_add_classroom_send_button" class="form_button" onclick="form_add_classroom_send()">Crear sala</div>
+</form>
+</div>
+{% endblock %}
+
+{% block js %}
+	{% load static %}
+	<script src="{% static "inputs.js" %}"></script>
+{% endblock %}

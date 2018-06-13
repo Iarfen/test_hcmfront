@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Solicitar sala
+{% endblock %}
+
+{% block css %}
+	{% load static %}
+	<link type="text/css" rel="stylesheet" href="{% static "form.css" %}">
+{% endblock %}
+
+{% block content %}
+<div id="request_classroom_content">
+<h2 id="request_classroom_title">Arrendar sala - </h2>
+<table>
+	<tr>
+		<th>Sala</th>
+		<th>Localización</th>
+		<th>Estado</th>
+		<th>Solicitar</th>
+	</tr>
+	<tr>
+		<td>Sala multiusos</td>
+		<td>Piso 7</td>
+		<td>Disponible</td>
+		<td><form action="{% url 'request_classroom_send' %}" method="post" id="form_request_classroom">
+			<input type="hidden" value="1">
+			<div class="form_button" onclick="request_classroom()">Solicitar</div></td>
+	</tr>
+</table>
+</div>
+{% endblock %}
+
+{% block js %}
+	{% load static %}
+	<script src="{% static "request_classroom.js" %}"></script>
+{% endblock %}

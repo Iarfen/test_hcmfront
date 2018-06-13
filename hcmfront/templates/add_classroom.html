@@ -1,0 +1,109 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Agregar sala
+{% endblock %}
+
+{% block css %}
+	{% load static %}
+	<link type="text/css" rel="stylesheet" href="{% static "add_classroom.css" %}">
+	<link type="text/css" rel="stylesheet" href="{% static "form.css" %}">
+{% endblock %}
+
+{% block content %}
+<div id="add_classroom_content">
+<h2 id="add_classroom_title">Agregar sala</h2>
+
+{% if form.is_valid %}
+	<p>Sala agregada exitosamente!</p>
+{% else %}
+<div>
+	{{ form.name.errors }}
+	{{ form.location.errors }}
+	{{ form.capacity.errors }}
+	{% for scheduleform in scheduleformset %}
+	<p>Hellooo!</p>
+	{{ scheduleform }}
+	{{ scheduleform.day.errors }}
+	{{ scheduleform.start_hour.errors }}
+	{{ scheduleform.end_hour.errors }}
+	{% endfor %}
+</div>
+{% endif %}
+
+<form action="{% url 'add_classroom_send' %}" method="post" id="form_add_classroom">
+{% csrf_token %}
+<div class="form_field">
+	<span class="form_field_text">Nombre: </span><input type="text" name="name">
+</div>
+<div class="form_field">
+	<span class="form_field_text">Ubicación: </span><input type="text" name="location">
+</div>
+<div class="form_field">
+	<span class="form_field_text">Capacidad: </span><input type="text" name="capacity">
+</div>
+<div class="form_field">
+	<span class="form_field_text">Horarios: </span>
+	<div id="form_schedules_container">
+		<table id="form_schedules">
+			<tr>
+				<th>Día</th>
+				<th>Hora de inicio</th>
+				<th>Hora de término</th>
+				<th></th>
+			</tr>
+			<tr id="form_schedule_0">
+				<td>{{ form.schedule_day|length }}
+				<select name='schedule-0-day'>
+					<option value='1'>Lunes</option>
+					<option value='2'>Martes</option>
+					<option value='3'>Miércoles</option>
+					<option value='4'>Jueves</option>
+					<option value='5'>Viernes</option>
+				</select></td>
+				<td><input type='text' name='schedule-0-start_hour'></td>
+				<td><input type='text' name='schedule-0-end_hour'></td>
+				<td></td>
+			</tr>
+			<tr id="form_schedule_add_schedule">
+				<td><div class="form_button" onclick="form_add_schedule()">Agregar horario</div></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="form_field">
+	<span class="form_field_text">Insumos: </span>
+	<div id="form_inputs_container">
+		<table id="form_inputs">
+			<tr>
+				<th>Insumo</th>
+				<th></th>
+			</tr>
+			<tr id="form_input_0">
+				<td><input type='text' name='input-0-name' value="Proyector"></td>
+				<td class='form_schedule_delete_button_td'><div class='form_button' onclick='form_delete_input(0)'>Eliminar</div></td>
+			</tr>
+			<tr id="form_input_1">
+				<td><input type='text' name='input-1-name' value="Pizarrón"></td>
+				<td class='form_schedule_delete_button_td'><div class='form_button' onclick='form_delete_input(1)'>Eliminar</div></td>
+			</tr>
+			<tr id="form_input_add_input">
+				<td><div class="form_button" onclick="form_add_input()">Agregar insumo</div></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="form_add_classroom_send_button" class="form_button" onclick="form_add_classroom_send()">Crear sala</div>
+</form>
+</div>
+{% endblock %}
+
+{% block js %}
+	{% load static %}
+	<script src="{% static "inputs.js" %}"></script>
+	<script src="{% static "add_classroom.js" %}"></script>
+{% endblock %}
