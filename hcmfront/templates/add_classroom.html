@@ -21,13 +21,6 @@ Agregar sala
 	{{ form.name.errors }}
 	{{ form.location.errors }}
 	{{ form.capacity.errors }}
-	{% for scheduleform in scheduleformset %}
-	<p>Hellooo!</p>
-	{{ scheduleform }}
-	{{ scheduleform.day.errors }}
-	{{ scheduleform.start_hour.errors }}
-	{{ scheduleform.end_hour.errors }}
-	{% endfor %}
 </div>
 {% endif %}
 
